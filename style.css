@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    background-color: lightcyan;
+}
+#my-canvas{
+    background-color: darkgray;
+}
+#start-btn, #restart-btn{
+    background-color: silver;
+    color: gold;
+    padding: 0px;
+    font-size: 20px;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+  }
+  #my-canvas, #gameover-screen{
+    display: none;
+  }
+  #pantalla-principal{
+    background-image: url(imagenes/losVengadoresPaginaInicio.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  #pantalla-gameover{
+    background-image: url(imagenes/ThanosGAmeOver.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  #pantalla-gameover img{
+    width: 50px;
+  }
+  
