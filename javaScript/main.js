@@ -29,3 +29,11 @@ const restartGame = ()=>{
 //* ADD EVENT LISTENERRS
 startBtnDOM.addEventListener("click", startGame);
 restartBtnDOM.addEventListener("click", restartGame)
+window.addEventListener("keydown",(event)=>{
+    if(event.code === "ArrowLeft"){
+        this.x -= 20
+    }else if (event.code === "ArrowRight"){
+        this.x += 20
+    }
+    
+})

@@ -4,6 +4,8 @@ class Game{
         this.background.src = "imagenes/fondoGalaxia.png"
         this.nave = new Nave()
 
+        this.isGameOn = true;
+
     }
 
     drawBackground = ()=>{
