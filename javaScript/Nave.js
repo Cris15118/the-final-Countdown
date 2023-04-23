@@ -7,10 +7,20 @@ class Nave{
         this.y = 490;
         this.w = 50;
         this.h = 100;
-        this.gravitySpeed = 2;
-        this.jumpSpeed = 60;
+        this.Speed = 5;
     }
     draw = ()=>{
         ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
     }
+
+    //! intentar usarlo en el addeventlistener de main
+    move =(direction) => {
+        if(direction==="left"){
+            this.x -= 20
+    
+        }else if(direction==="right"){
+           this.x += 20
+        }
+    
+       }
 }
