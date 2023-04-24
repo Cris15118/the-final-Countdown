@@ -1,11 +1,11 @@
-class Villano {
+class Otrovillano {
     constructor(positionX,){
         this.img = new Image()
-        this.img.src = "imagenes/thanos_preview_rev_1.png" 
+        this.img.src = "imagenes/loki_preview_rev_1.png" 
         this.x = positionX;
         this.y = 0;
-        this.w = 90; 
-        this.h = 80;
+        this.w = 50; 
+        this.h = 50;
         this.speed = 0.5;
   
     }

@@ -44,6 +44,7 @@ body{
     background-position: center;
     width: 500px;
     height: 600px;
+    
   }
   #pantalla-gameover{
     background-image: url(imagenes/ThanosGAmeOver.png);

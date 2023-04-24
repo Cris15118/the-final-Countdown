@@ -8,6 +8,7 @@ class Game {
     this.isGameOn = true;
     this.score = 0;
     this.live = 5;
+    this.otroVillanoArray = []
     
       
   }
@@ -18,20 +19,49 @@ class Game {
   villanosAparecen = () => {
     if (
       this.villanoArray.length === 0 ||
-      this.villanoArray[this.villanoArray.length - 1].y > 50
+      this.villanoArray[this.villanoArray.length - 1].y > 80
     ) {
-      let randomPositionX = Math.random() * 300;
+      let randomPositionX = Math.random() * 330;
       let nuevoVillano = new Villano(randomPositionX);
       this.villanoArray.push(nuevoVillano);
     }
   };
+  otroVillanoAparece= () => {
+    if (this.otroVillanoArray.length === 0 ||
+      this.otroVillanoArray[this.otroVillanoArray.length - 1].y > 100
+    ) {
+      let randomPositionX = Math.random() * 250;
+      let nuevoOtroVillano = new Otrovillano(randomPositionX);
+      this.otroVillanoArray.push(nuevoOtroVillano);
+    }
+  };
+  checkCollisionNaveOtro = () => { 
+    this.otroVillanoArray.forEach((eachOtroVillano) => {
+      if (
+        eachOtroVillano.x < this.nave.x + this.nave.w &&
+        eachOtroVillano.x + eachOtroVillano.w > this.nave.x &&
+        eachOtroVillano.y < this.nave.y + this.nave.h &&
+        eachOtroVillano.h + eachOtroVillano.y > this.nave.y
+      ) {
+        this.gameOver();
+      }
+    });
+  };
+  
   disparoAparece = ()=> {
-    if(this.disparosArray.length === 0 ){
+    if(this.disparosArray.length === 0 || this.disparosArray[this.disparosArray.length -1].y < 500 ){
       let nuevoDisparo = new Disparo()
       this.disparosArray.push(nuevoDisparo)
       
     }
   }
+  removeDisparo = () => {
+    if (this.disparosArray[0].y + this.disparosArray[0].h <0 ) {
+      this.disparosArray.shift();
+       
+    }
+    }
+
  colisionDisparos = ()=>{
   this.disparosArray.forEach((eachDisparo, eachVillano)=>{
 if(eachDisparo.x < eachVillano.x + eachVillano.w &&
@@ -68,23 +98,21 @@ if(eachDisparo.x < eachVillano.x + eachVillano.w &&
   };
   drawScore = () => {
     ctx.font = "20px Comic Sans MS";
-    ctx.fillText("PUNTOS : 0", 20, 30);
+    ctx.fillText("PUNTOS : "+ this.score, 20, 30);
   };
   drawLive = () => {
     ctx.font = "20px Comic Sans MS";
-    ctx.fillText("VIDAS: 5 ", 200, 30);
+    ctx.fillText("VIDAS:  " + this.live , 200, 30);
+    
   };
   //! preguntar marcador live
   removeVillano = () => {
-    if (this.villanoArray[0].y + this.villanoArray[0].h > canvas.height &&  this.live > 0 ) {
+    if (this.villanoArray[0].y + this.villanoArray[0].h > canvas.height &&  this.live >= 0 ) {
       this.villanoArray.splice(0, 1);
        this.live--
     }else if (this.villanoArray[0].y + this.villanoArray[0].h > canvas.height && this.live === 0 ){
       this.gameOver()
     }
-  
-
-    //meter elsse if el villano pasa del canvas y no tengo vidas entonces game over
     
   };
   naveOut = () => {
@@ -103,8 +131,13 @@ if(eachDisparo.x < eachVillano.x + eachVillano.w &&
     this.villanoArray.forEach((eachVillano) => {
       eachVillano.move();
     });
+    this.otroVillanoArray.forEach((eachOtroVillano)=>{
+      eachOtroVillano.move()
+    })
     this.villanosAparecen();
+    this.otroVillanoAparece()
     this.checkCollisionNave();
+    this.checkCollisionNaveOtro()
     this.removeVillano();
     this.naveOut();
     this.disparoAparece();
@@ -119,6 +152,9 @@ if(eachDisparo.x < eachVillano.x + eachVillano.w &&
     this.villanoArray.forEach((eachVillano) => {
       eachVillano.draw();
     });
+    this.otroVillanoArray.forEach((eachOtroVillano)=>{
+      eachOtroVillano.draw()
+    })
     
     this.drawScore();
     this.drawLive();
