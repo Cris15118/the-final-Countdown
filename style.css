@@ -11,7 +11,10 @@ body{
     padding: 0px;
     font-size: 20px;
     margin-top: 40px;
+    margin-bottom: 30px;
     border-radius: 5px;
+    width: 100px;
+    height: 50px;
 }
 .container {
     display: flex;
@@ -34,6 +37,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    width: 500px;
+    height: 600px;
   }
   #pantalla-gameover img{
     width: 50px;

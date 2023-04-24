@@ -12,15 +12,15 @@ class Nave{
     draw = ()=>{
         ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
     }
-
+    
     //! intentar usarlo en el addeventlistener de main
-    move =(direction) => {
-        if(direction==="left"){
-            this.x -= 20
+  //  move =(direction) => {
+  //      if(direction==="left"){
+  //          this.x -= 20
     
-        }else if(direction==="right"){
-           this.x += 20
-        }
+   //     }else if(direction==="right"){
+ //        this.x += 20 
+  //      }
     
-       }
+   //    }
 }
