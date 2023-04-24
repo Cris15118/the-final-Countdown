@@ -19,9 +19,4 @@ class Villano {
         
     }
 
-  //  gravity = ()=>{
-       
-   //         this.y  += this.speed
-        
- //   }
 }

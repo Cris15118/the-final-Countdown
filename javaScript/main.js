@@ -32,3 +32,20 @@ window.addEventListener("keydown", (event) => {
     gameObj.nave.x += 20;
   }
 });
+window.addEventListener("keydown", (event)=>{
+    if (gameObj !== undefined && event.code === "Space") {
+       gameObj.disparosArray.forEach((eachDisparo)=>{
+            eachDisparo.drawBala()
+            console.log("dibujando")
+        })
+       gameObj.disparosArray.forEach((eachDisparo)=>{
+            eachDisparo.balaMove()
+            console.log("moviendo")
+        })
+
+     
+           
+       
+    
+      }
+})

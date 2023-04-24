@@ -5,16 +5,27 @@ body{
 #my-canvas{
     background-color: darkgray;
 }
-#start-btn, #restart-btn{
+#start-btn {
     background-color: silver;
     color: gold;
     padding: 0px;
     font-size: 20px;
     margin-top: 40px;
-    margin-bottom: 30px;
+    
     border-radius: 5px;
     width: 100px;
     height: 50px;
+}
+#restart-btn{
+  background-color: silver;
+  color: gold;
+  padding: 0px;
+  font-size: 20px;
+  margin-top: 400px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
 }
 .container {
     display: flex;
@@ -23,7 +34,7 @@ body{
     align-items: center;
     margin: 50px;
   }
-  #my-canvas, #gameover-screen{
+  #my-canvas, #pantalla-gameover{
     display: none;
   }
   #pantalla-principal{
@@ -31,6 +42,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    width: 500px;
+    height: 600px;
   }
   #pantalla-gameover{
     background-image: url(imagenes/ThanosGAmeOver.png);
@@ -41,6 +54,9 @@ body{
     height: 600px;
   }
   #pantalla-gameover img{
-    width: 50px;
+    width: 200px;
+  }
+  #pantalla-principal img{
+    width: 200px ;
   }
   
