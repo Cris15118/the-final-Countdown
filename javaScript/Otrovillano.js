@@ -4,8 +4,8 @@ class Otrovillano {
         this.img.src = "imagenes/loki_preview_rev_1.png" 
         this.x = positionX;
         this.y = 0;
-        this.w = 50; 
-        this.h = 50;
+        this.w = 40; 
+        this.h = 40;
         this.speed = 0.5;
   
     }

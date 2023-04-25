@@ -4,8 +4,8 @@ class Villano {
         this.img.src = "imagenes/thanos_preview_rev_1.png" 
         this.x = positionX;
         this.y = 0;
-        this.w = 90; 
-        this.h = 80;
+        this.w = 60; 
+        this.h = 60;
         this.speed = 0.5;
   
     }

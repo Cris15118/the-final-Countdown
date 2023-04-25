@@ -9,6 +9,8 @@ class Game {
     this.score = 0;
     this.live = 5;
     this.otroVillanoArray = []
+    this.disparo = new Disparo()
+    
     
       
   }
@@ -49,10 +51,11 @@ class Game {
   };
   
   disparoAparece = ()=> {
-    if(this.disparosArray.length === 0 || this.disparosArray[this.disparosArray.length -1].y < 500 ){
-      let nuevoDisparo = new Disparo()
+    if(this.disparosArray.length === 0 || this.disparosArray[this.disparosArray.length -1].y < 400 ){
+
+      let nuevoDisparo = new Disparo(this.nave.x)
       this.disparosArray.push(nuevoDisparo)
-      
+      console.log(this.disparosArray.length)
     }
   }
   removeDisparo = () => {
@@ -63,16 +66,32 @@ class Game {
     }
 
  colisionDisparos = ()=>{
-  this.disparosArray.forEach((eachDisparo, eachVillano)=>{
-if(eachDisparo.x < eachVillano.x + eachVillano.w &&
-        eachDisparo.x + eachDisparo.w > eachVillano.x &&
-        eachDisparo.y < eachVillano.y + eachVillano.h &&
-        eachDisparo.h + eachDisparo.y > eachVillano.y){
-
-        }
-    this.villanoArray.splice(0,1)
+  this.villanoArray.forEach((eachVillano,indexVillano)=>{
+    this.disparosArray.forEach((eachDisparo, indexDisparo)=>{
+      if(eachVillano.x < eachDisparo.x + eachDisparo.w &&
+      eachVillano.x + eachVillano.w > eachDisparo.x &&
+      eachVillano.y < eachDisparo.y + eachDisparo.h &&
+      eachVillano.h + eachVillano.y > eachDisparo.y
+      ){
+        this.villanoArray.splice(indexVillano, 1)
+         this.disparosArray.splice(indexDisparo,1)
+       this.score += 5
+    }
+    })
   })
-
+  this.otroVillanoArray.forEach((eachOtroVillano,indexOtroVillano)=>{
+    this.disparosArray.forEach((eachDisparo, indexDisparo)=>{
+      if(eachOtroVillano.x < eachDisparo.x + eachDisparo.w &&
+      eachOtroVillano.x + eachOtroVillano.w > eachDisparo.x &&
+      eachOtroVillano.y < eachDisparo.y + eachDisparo.h &&
+      eachOtroVillano.h + eachOtroVillano.y > eachDisparo.y
+      ){
+        this.otroVillanoArray.splice(indexOtroVillano, 1)
+         this.disparosArray.splice(indexDisparo,1)
+       this.score += 2
+    }
+    })
+  })
  }
   checkCollisionNave = () => {
     this.villanoArray.forEach((eachVillano) => {
@@ -105,16 +124,20 @@ if(eachDisparo.x < eachVillano.x + eachVillano.w &&
     ctx.fillText("VIDAS:  " + this.live , 200, 30);
     
   };
-  //! preguntar marcador live
-  removeVillano = () => {
-    if (this.villanoArray[0].y + this.villanoArray[0].h > canvas.height &&  this.live >= 0 ) {
-      this.villanoArray.splice(0, 1);
+  
+ 
+  gameoverLive=()=>{
+    if (this.villanoArray[0].y + this.villanoArray[0].h > canvas.height && this.live >= 0){
        this.live--
-    }else if (this.villanoArray[0].y + this.villanoArray[0].h > canvas.height && this.live === 0 ){
+        this.villanoArray.shift()
+    }else if(this.otroVillanoArray[0].y+this.otroVillanoArray[0].h > canvas.height &&
+       this.live >= 0) {
+        this.live--
+        this.otroVillanoArray.shift()
+       } else if (this.live === 0 ){
       this.gameOver()
     }
-    
-  };
+  }
   naveOut = () => {
     if (this.nave.x + this.nave.w > canvas.width) {
       this.nave.x = canvas.width - this.nave.w;
@@ -138,11 +161,16 @@ if(eachDisparo.x < eachVillano.x + eachVillano.w &&
     this.otroVillanoAparece()
     this.checkCollisionNave();
     this.checkCollisionNaveOtro()
-    this.removeVillano();
+    this.colisionDisparos()
     this.naveOut();
-    this.disparoAparece();
+    
+    
+   this.gameoverLive()
    
-  
+this.disparosArray.forEach((eachDisparo)=>{
+    eachDisparo.balaMove()
+    //console.log("moviendo")
+})
    
 
     // 3 dibujado de los elementos
@@ -155,7 +183,10 @@ if(eachDisparo.x < eachVillano.x + eachVillano.w &&
     this.otroVillanoArray.forEach((eachOtroVillano)=>{
       eachOtroVillano.draw()
     })
-    
+    this.disparosArray.forEach((eachDisparo)=>{
+    eachDisparo.drawBala()
+    //console.log("dibujando")
+})
     this.drawScore();
     this.drawLive();
     
