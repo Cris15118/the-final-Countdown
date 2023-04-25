@@ -9,8 +9,8 @@ class Game {
     this.score = 0;
     this.live = 5;
     this.otroVillanoArray = []
+   
     this.gemaArray = []
-    
     
       
   }
@@ -19,7 +19,29 @@ class Game {
     ctx.drawImage(this.background, 0, 0, canvas.width, canvas.height);
   };
   
- 
+ gemaAparece = ()=>{
+  if (
+    this.gemaArray.length === 0 ||
+    this.gemaArray[this.gemaArray.length - 1].y > 2000 ) {
+    let randomPositionX = Math.random() * 330;
+    let nuevaGema = new Gemas(randomPositionX);
+    this.gemaArray.push(nuevaGema);
+  }
+ }
+ colisionGemas = ()=>{
+  this.gemaArray.forEach((eachGema) => {
+    if (
+      eachGema.x < this.nave.x + this.nave.w &&
+      eachGema.x + eachGema.w > this.nave.x &&
+      eachGema.y < this.nave.y + this.nave.h &&
+      eachGema.h + eachGema.y > this.nave.y
+    ) {
+      this.gemaArray.shift()
+      this.live++
+      console.log("Ha colisionado")
+    }
+  });
+ }
   villanosAparecen = () => {
     if (
       this.villanoArray.length === 0 ||
@@ -145,13 +167,7 @@ class Game {
       this.nave.x = 0;
     }
   };
-  gemaAparece = ()=>{
-   if(this.gemaArray.length=== 0 || this.gemaArray[this.gemaArray.length-1].y> 70){
-    let randomPositionX = Math.floor()*220;
-    let nuevaGema = new Gemas(randomPositionX)
-    this.gemaArray.push(nuevaGema)
-   }
-  }
+ 
   gameLoop = () => {
     // 1 limpieza del canvas
     this.clearCanvas();
@@ -163,8 +179,8 @@ class Game {
       eachOtroVillano.move()
     })
     this.gemaArray.forEach((eachGema)=>{
-    eachGema.move()
-   })
+      eachGema.move()
+    })
     this.villanosAparecen();
     this.otroVillanoAparece()
     this.gemaAparece()
@@ -173,7 +189,7 @@ class Game {
     this.colisionDisparos()
     this.naveOut();
     this.removeDisparo()
-    
+    this.colisionGemas()
    this.gameoverLive()
    
 this.disparosArray.forEach((eachDisparo)=>{

@@ -6,7 +6,7 @@ class Otrovillano {
         this.y = 0;
         this.w = 40; 
         this.h = 40;
-        this.speed = 0.9;
+        this.speed = 1.5;
   
     }
     draw = ()=>{
