@@ -9,7 +9,7 @@ class Game {
     this.score = 0;
     this.live = 5;
     this.otroVillanoArray = []
-    this.disparo = new Disparo()
+    this.gemaArray = []
     
     
       
@@ -18,11 +18,12 @@ class Game {
   drawBackground = () => {
     ctx.drawImage(this.background, 0, 0, canvas.width, canvas.height);
   };
+  
+ 
   villanosAparecen = () => {
     if (
       this.villanoArray.length === 0 ||
-      this.villanoArray[this.villanoArray.length - 1].y > 80
-    ) {
+      this.villanoArray[this.villanoArray.length - 1].y > 80 ) {
       let randomPositionX = Math.random() * 330;
       let nuevoVillano = new Villano(randomPositionX);
       this.villanoArray.push(nuevoVillano);
@@ -59,7 +60,7 @@ class Game {
     }
   }
   removeDisparo = () => {
-    if (this.disparosArray[0].y + this.disparosArray[0].h <0 ) {
+    if (this.disparosArray.length !== 0 && this.disparosArray[0].y + this.disparosArray[0].h <0 ) {
       this.disparosArray.shift();
        
     }
@@ -124,13 +125,12 @@ class Game {
     ctx.fillText("VIDAS:  " + this.live , 200, 30);
     
   };
-  
  
   gameoverLive=()=>{
-    if (this.villanoArray[0].y + this.villanoArray[0].h > canvas.height && this.live >= 0){
+    if (this.villanoArray.length !== 0 && this.villanoArray[0].y + this.villanoArray[0].h > canvas.height && this.live >= 0){
        this.live--
         this.villanoArray.shift()
-    }else if(this.otroVillanoArray[0].y+this.otroVillanoArray[0].h > canvas.height &&
+    }else if(this.otroVillanoArray.length !== 0 && this.otroVillanoArray[0].y+this.otroVillanoArray[0].h > canvas.height &&
        this.live >= 0) {
         this.live--
         this.otroVillanoArray.shift()
@@ -145,8 +145,13 @@ class Game {
       this.nave.x = 0;
     }
   };
-  
-
+  gemaAparece = ()=>{
+   if(this.gemaArray.length=== 0 || this.gemaArray[this.gemaArray.length-1].y> 70){
+    let randomPositionX = Math.floor()*220;
+    let nuevaGema = new Gemas(randomPositionX)
+    this.gemaArray.push(nuevaGema)
+   }
+  }
   gameLoop = () => {
     // 1 limpieza del canvas
     this.clearCanvas();
@@ -157,13 +162,17 @@ class Game {
     this.otroVillanoArray.forEach((eachOtroVillano)=>{
       eachOtroVillano.move()
     })
+    this.gemaArray.forEach((eachGema)=>{
+    eachGema.move()
+   })
     this.villanosAparecen();
     this.otroVillanoAparece()
+    this.gemaAparece()
     this.checkCollisionNave();
     this.checkCollisionNaveOtro()
     this.colisionDisparos()
     this.naveOut();
-    
+    this.removeDisparo()
     
    this.gameoverLive()
    
@@ -186,6 +195,9 @@ this.disparosArray.forEach((eachDisparo)=>{
     this.disparosArray.forEach((eachDisparo)=>{
     eachDisparo.drawBala()
     //console.log("dibujando")
+})
+this.gemaArray.forEach((eachGema)=>{
+  eachGema.draw()
 })
     this.drawScore();
     this.drawLive();

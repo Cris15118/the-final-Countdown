@@ -27,9 +27,9 @@ startBtnDOM.addEventListener("click", startGame);
 restartBtnDOM.addEventListener("click", restartGame);
 window.addEventListener("keydown", (event) => {
   if (event.code === "ArrowLeft") {
-    gameObj.nave.x -= 20;
+    gameObj.nave.x -= 25;
   } else if (event.code === "ArrowRight") {
-    gameObj.nave.x += 20;
+    gameObj.nave.x += 25;
   }
 });
 window.addEventListener("keydown", (event)=>{
