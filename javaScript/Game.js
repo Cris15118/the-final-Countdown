@@ -10,7 +10,7 @@ class Game {
     this.live = 5;
     this.otroVillanoArray = []
     this.gemaArray = []
-    
+   
     
       
   }
@@ -50,6 +50,7 @@ class Game {
       let nuevoVillano = new Villano(randomPositionX);
       this.villanoArray.push(nuevoVillano);
     }
+
   };
   otroVillanoAparece= () => {
     if (this.otroVillanoArray.length === 0 ||
@@ -78,8 +79,9 @@ class Game {
 
       let nuevoDisparo = new Disparo(this.nave.x)
       this.disparosArray.push(nuevoDisparo)
-      console.log(this.disparosArray.length)
+
     }
+    
   }
   removeDisparo = () => {
     if (this.disparosArray.length !== 0 && this.disparosArray[0].y + this.disparosArray[0].h <0 ) {
@@ -128,12 +130,28 @@ class Game {
       }
     });
   };
-  
+  risaMalvada = ()=>{
+    let risaMalvada = new Audio()
+    risaMalvada.src = "audio/risaMalvada.mp3"
+    risaMalvada.play()
+  }
+  audioGameover = ()=>{
+    
+    audioFinal.play()
+  }
+  pausarAudioIntro = ()=>{
+      audioIntro.pause()
+      audioIntro.currentTime = 0
+    }
+    
   gameOver = () => {
    
     this.isGameOn = false;
-    canvas.style.display = "none";
+    pauseGameDOM.style.display = "none";
     gameoverScreenDOM.style.display = "flex";
+    this.audioGameover()
+    this.risaMalvada()
+   this.pausarAudioIntro()
   };
 
   clearCanvas = () => {
@@ -173,6 +191,8 @@ class Game {
     this.live = 5
   }
  }
+ 
+ 
   gameLoop = () => {
     // 1 limpieza del canvas
     this.clearCanvas();
@@ -201,7 +221,7 @@ this.disparosArray.forEach((eachDisparo)=>{
     eachDisparo.balaMove()
     //console.log("moviendo")
 })
-   
+
 
     // 3 dibujado de los elementos
     this.drawBackground();
