@@ -9,8 +9,8 @@ class Game {
     this.score = 0;
     this.live = 5;
     this.otroVillanoArray = []
-   
     this.gemaArray = []
+    
     
       
   }
@@ -128,6 +128,7 @@ class Game {
       }
     });
   };
+  
   gameOver = () => {
    
     this.isGameOn = false;
@@ -167,7 +168,11 @@ class Game {
       this.nave.x = 0;
     }
   };
- 
+ noMasLive = ()=>{
+  if(this.live >= 5){
+    this.live = 5
+  }
+ }
   gameLoop = () => {
     // 1 limpieza del canvas
     this.clearCanvas();
@@ -191,7 +196,7 @@ class Game {
     this.removeDisparo()
     this.colisionGemas()
    this.gameoverLive()
-   
+  this.noMasLive()
 this.disparosArray.forEach((eachDisparo)=>{
     eachDisparo.balaMove()
     //console.log("moviendo")
