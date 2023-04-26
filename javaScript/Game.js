@@ -22,7 +22,7 @@ class Game {
  gemaAparece = ()=>{
   if (
     this.gemaArray.length === 0 ||
-    this.gemaArray[this.gemaArray.length - 1].y > 2000 ) {
+    this.gemaArray[this.gemaArray.length - 1].y > 1500 ) {
     let randomPositionX = Math.random() * 330;
     let nuevaGema = new Gemas(randomPositionX);
     this.gemaArray.push(nuevaGema);

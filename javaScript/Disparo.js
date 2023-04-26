@@ -1,7 +1,7 @@
 class Disparo {
     constructor(positionX) {
       this.img = new Image()
-      this.img.src = "imagenes/coleccion-iluminacion-escena-realista_52683-6710_preview_rev_1.png"
+      this.img.src = "imagenes/disparo.png"
     this.x = positionX;
     this.y = 480;
     this.w = 15;

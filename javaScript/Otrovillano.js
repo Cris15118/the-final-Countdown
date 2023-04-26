@@ -1,7 +1,7 @@
 class Otrovillano {
     constructor(positionX,){
         this.img = new Image()
-        this.img.src = "imagenes/loki_preview_rev_1.png" 
+        this.img.src = "imagenes/loki.png" 
         this.x = positionX;
         this.y = 0;
         this.w = 40; 
