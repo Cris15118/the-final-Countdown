@@ -28,6 +28,11 @@ class Game {
     this.gemaArray.push(nuevaGema);
   }
  }
+ audioGemas = ()=>{
+  let cogerVidas = new Audio()
+    cogerVidas.src = "audio/cuandoCogeRecargasVidas.mp3"
+    cogerVidas.play()
+ }
  colisionGemas = ()=>{
   this.gemaArray.forEach((eachGema) => {
     if (
@@ -38,7 +43,7 @@ class Game {
     ) {
       this.gemaArray.shift()
       this.live++
-      console.log("Ha colisionado")
+      this.audioGemas()
     }
   });
  }
@@ -89,7 +94,12 @@ class Game {
        
     }
     }
-
+    crashVillano = ()=>{
+      let crashAudio = new Audio()
+      crashAudio.src = "audio/crash.mp3"
+      crashAudio.volume = 0.5
+      crashAudio.play()
+    }
  colisionDisparos = ()=>{
   this.villanoArray.forEach((eachVillano,indexVillano)=>{
     this.disparosArray.forEach((eachDisparo, indexDisparo)=>{
@@ -101,6 +111,7 @@ class Game {
         this.villanoArray.splice(indexVillano, 1)
          this.disparosArray.splice(indexDisparo,1)
        this.score += 5
+       this.crashVillano()
     }
     })
   })
@@ -114,6 +125,7 @@ class Game {
         this.otroVillanoArray.splice(indexOtroVillano, 1)
          this.disparosArray.splice(indexDisparo,1)
        this.score += 2
+       this.crashVillano()
     }
     })
   })
@@ -136,8 +148,9 @@ class Game {
     risaMalvada.play()
   }
   audioGameover = ()=>{
-    
+    audioFinal.volume = 0.3
     audioFinal.play()
+    audioFinal.loop = true
   }
   pausarAudioIntro = ()=>{
       audioIntro.pause()

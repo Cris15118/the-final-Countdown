@@ -13,8 +13,8 @@ const ctx = canvas.getContext("2d");
 let gameObj;
 let audioIntro = new Audio()
 audioIntro.src="audio/ringtonesTheAvengersPantallaInicio.mp3"
- let audioFinal = new Audio()
-  audioFinal.src = "audio/avengersPantallaFinal.mp3"
+let audioFinal = new Audio()
+audioFinal.src = "audio/avengersPantallaFinal.mp3"
 const DisparoAudio = new Audio()
     DisparoAudio.src = "audio/disparo.mp3"
 
@@ -22,17 +22,26 @@ const DisparoAudio = new Audio()
     if(audioFinal.paused=== false){
       audioFinal.pause()
     }
-      
+
       audioFinal.currentTime = 0
-      console.log("Audiofinal")
+      
+    }
+    pausarAudioIntro = ()=>{
+      
+        audioIntro.pause()
+      audioIntro.currentTime = 0
+      
+      
     }
 //* FUNCIONES DE ESTADO
 const startDisparo = ()=>{
   DisparoAudio.play()
+ 
 }
 const StartAudio =()=>{
-  audioIntro.volume= 0.3
+  audioIntro.volume = 0.2
   audioIntro.play()
+  audioIntro.loop = true
   audioIntro.currentTime = 0
 }
 const instruccions = () => {
@@ -56,8 +65,13 @@ const  pauseGame = ()=>{
     gameObj.gameLoop()
   }else if (gameObj.isGameOn === true){
     gameObj.isGameOn = false
-    
   }
+  if (gameObj.isGameOn === false){
+    pausarAudioIntro()
+  }else{
+    StartAudio()
+  }
+  
 }
 
 const restartGame = () => {
@@ -99,4 +113,3 @@ window.addEventListener("keydown", (event)=>{
       startDisparo()
       }
 })
-window.addEventListener("load",StartAudio)
