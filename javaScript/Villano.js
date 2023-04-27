@@ -6,7 +6,7 @@ class Villano {
         this.y = 0;
         this.w = 70; 
         this.h = 60;
-        this.speed = 1.5;
+        this.speed = 1.2;
   
     }
     draw = ()=>{

@@ -6,7 +6,8 @@ class Otrovillano {
         this.y = 0;
         this.w = 40; 
         this.h = 40;
-        this.speed = 1.5;
+        this.speed = 1; 
+        this.gravity = 1.5
   
     }
     draw = ()=>{
@@ -15,8 +16,8 @@ class Otrovillano {
     
     move = ()=>{
         
-            this.y += this.speed
+            this.y += this.speed*this.gravity
         
     }
 
-}
+}     

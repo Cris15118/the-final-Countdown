@@ -79,7 +79,7 @@ class Game {
       }
     });
   };
-  
+ 
   disparoAparece = ()=> {
     if(this.disparosArray.length === 0 || this.disparosArray[this.disparosArray.length -1].y < 400 ){
 
@@ -154,10 +154,10 @@ class Game {
     audioFinal.play()
     audioFinal.loop = true
   }
-  pausarAudioIntro = ()=>{
-      audioIntro.pause()
-      audioIntro.currentTime = 0
-    }
+  pauseAudioJuego = ()=>{
+    audioJuego.pause()
+    audioJuego.currentTime = 0
+  }
     
   gameOver = () => {
    
@@ -166,7 +166,7 @@ class Game {
     gameoverScreenDOM.style.display = "flex";
     this.audioGameover()
     this.risaMalvada()
-   this.pausarAudioIntro()
+   this.pauseAudioJuego()
   };
 
   clearCanvas = () => {
@@ -178,7 +178,7 @@ class Game {
   };
   drawLive = () => {
     ctx.font = "20px Impact";
-    ctx.fillText("VIDAS:  " + this.live , 150, 30);
+    ctx.fillText("VIDAS:  " + this.live , 180, 30);
     
   };
  

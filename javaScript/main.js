@@ -11,6 +11,8 @@ const pauseGameDOM = document.querySelector("#container-pause")
 const canvas = document.querySelector("#my-canvas");
 const ctx = canvas.getContext("2d");
 let gameObj;
+let audioJuego = new Audio()
+audioJuego.src = "audio/avengersPantallaJuego.mp3"
 let audioIntro = new Audio()
 audioIntro.src="audio/ringtonesTheAvengersPantallaInicio.mp3"
 let audioFinal = new Audio()
@@ -39,11 +41,21 @@ const startDisparo = ()=>{
   DisparoAudio.volume = 0.08
  
 }
+const startAudioJuego = ()=>{
+  audioJuego.volume = 0.05
+  audioJuego.play()
+  audioJuego.loop = true
+  
+}
+const pauseAudioJuego = ()=>{
+  audioJuego.pause()
+  
+}
 const StartAudio =()=>{
-  audioIntro.volume = 0.0
+  audioIntro.volume = 0.05
   audioIntro.play()
   audioIntro.loop = true
-  audioIntro.currentTime = 0
+ 
 }
 const instruccions = () => {
   splasScreenDOM.style.display = "none";
@@ -59,6 +71,8 @@ const startGame=()=>{
   gameObj= new Game()
   gameObj.gameLoop()
   
+  pausarAudioIntro()
+  startAudioJuego()
 }
 const  pauseGame = ()=>{
   if( gameObj.isGameOn === false ){
@@ -68,9 +82,9 @@ const  pauseGame = ()=>{
     gameObj.isGameOn = false
   }
   if (gameObj.isGameOn === false){
-    pausarAudioIntro()
+    pauseAudioJuego()
   }else{
-    StartAudio()
+    startAudioJuego()
   }
   
 }
@@ -81,11 +95,11 @@ const restartGame = () => {
   gameObj = new Game();
   gameObj.gameLoop();
   pausarAudioFinal()
-  StartAudio()
+  startAudioJuego()
 };
 const inicioGame = ()=>{
     
-    console.log("Stop")
+    
   gameoverScreenDOM.style.display = "none"
   splasScreenDOM.style.display = "block"
   pausarAudioFinal()
@@ -113,8 +127,10 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keydown", (event)=>{
     if (gameObj !== undefined && event.code === "Space") {
       gameObj.disparoAparece()
+      if (gameObj.isGameOn === true){
+        startDisparo()
+      }
       
-      startDisparo()
       }
 })
 
