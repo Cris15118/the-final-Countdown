@@ -1,38 +1,55 @@
 body{
     margin: 0;
-    background-color: lightcyan;
+    background-color:white;
 }
 #my-canvas{
     background-color: darkgray;
 }
 #start-btn {
-    background-color: silver;
-    color: gold;
+
+    background-color: crimson;
+    border-color: orange;
+    border-style: double;
+    border-width: 5px;
+    color: black;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
    display: block;
-   margin-left: 200px;
+   margin-left: 150px;
+   margin-top: 50px;
     font-size: 20px;
-    margin-bottom: 50px;
+   
     border-radius: 5px;
     width: 100px;
     height: 50px;
 }
 #press-btn{
-  background-color: silver;
-    color: gold;
+  background-color: crimson;
+    border-color: orange;
+    border-style: double;
+    border-width: 5px;
+    color: black;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
    display: block;
    
    margin-left: 150px;
     font-size: 18px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     border-radius: 5px;
     width: 200px;
     height: 50px;
 }
 #inicio{
-  background-color: silver;
-  color: gold;
+  background-color: crimson;
+    border-color: orange;
+    border-style: double;
+    border-width: 5px;
+    color: black;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding: 0px;
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 10px;
   border-radius: 5px;
   width: 100px;
@@ -40,10 +57,15 @@ body{
 }
 
 #restart-btn{
-  background-color: silver;
-  color: gold;
+  background-color: crimson;
+  border-color: orange;
+  border-style: double;
+  border-width: 5px;
+  color: black;
+  font-weight: bold;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding: 0px;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 350px;
   margin-bottom: 30px;
   border-radius: 5px;
@@ -51,15 +73,21 @@ body{
   height: 50px;
 }
 #pause-btn{
-  margin: 0;
-  background-color: silver;
-  color: gold;
-  font-size: 10px;
+ 
+  background-color: rgb(231, 76, 60);
+  border-color: rgb(27, 79, 114);
+  color: black;
+  border-width: 3px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 12px;
   margin-top: 0px;
   border-radius: 5px;
   width: 60px;
   height: 20px;
-  
+  position: relative;
+  top: -575px;
+  left: -70px;
+  text-align: center;
 }
 .container {
     display: block;
@@ -70,6 +98,7 @@ body{
   }
   #container-pause{
     display: none;
+    
   }
   #pantalla-gameover{
     display: none;
@@ -101,44 +130,47 @@ body{
    margin-left: 150px;
   }
   #instrucciones{
-  width: 600px;
-  height: 400px;
-   
-    background-color: rgba(255,255,255,0.1);
-    text-align: left;
+  width: 400px;
+  height: 500px;
+   color: rgb(21, 67, 96);
+  background-color: rgba(232,218,239,0.5);
+    text-align: justify;
     display: none;
     flex-direction: column;
     align-items: flex-start;
    
-   margin-top: 50px;
+   margin-top: 100px;
     margin-bottom: 30px;
-    padding-left: 20px;
-    padding-top: 20px;
+    
+    padding-top: 80px;
     font-family: cursive;    
 
     
   }
   #instrucciones h3, h4, h5, p {
     margin: 0;
-    text-align: justify;
+    text-align: center;
   }
   
   #instrucciones img{
     width: 30px;
     height: 30px;
     margin: 0;
-    margin-left: 40px;
+    margin-left: 10px;
+    padding-left: 100px;
   }
   #flecha{
     display: flex;
     
   }
   #instrucciones .space{
-    width: 80px;
-    height: 50px;
+    width: 150px;
+    height: 80px;
+    margin-left: 20px;
   }
   #instrucciones h4, h3{
     text-decoration: underline;
+    padding-bottom: 10px;
   }
   #instrucciones p{
     font-size: 16px;

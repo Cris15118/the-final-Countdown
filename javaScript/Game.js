@@ -31,6 +31,7 @@ class Game {
  audioGemas = ()=>{
   let cogerVidas = new Audio()
     cogerVidas.src = "audio/cuandoCogeRecargasVidas.mp3"
+    cogerVidas.volume = 0.08
     cogerVidas.play()
  }
  colisionGemas = ()=>{
@@ -97,7 +98,7 @@ class Game {
     crashVillano = ()=>{
       let crashAudio = new Audio()
       crashAudio.src = "audio/crash.mp3"
-      crashAudio.volume = 0.5
+      crashAudio.volume = 0.08
       crashAudio.play()
     }
  colisionDisparos = ()=>{
@@ -145,10 +146,11 @@ class Game {
   risaMalvada = ()=>{
     let risaMalvada = new Audio()
     risaMalvada.src = "audio/risaMalvada.mp3"
+    risaMalvada.volume = 0.06
     risaMalvada.play()
   }
   audioGameover = ()=>{
-    audioFinal.volume = 0.3
+    audioFinal.volume = 0.05
     audioFinal.play()
     audioFinal.loop = true
   }
@@ -171,12 +173,12 @@ class Game {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
   drawScore = () => {
-    ctx.font = "20px Comic Sans MS";
-    ctx.fillText("PUNTOS : "+ this.score, 20, 30);
+    ctx.font = "20px Impact";
+    ctx.fillText("PUNTOS : "+ this.score, 30, 30);
   };
   drawLive = () => {
-    ctx.font = "20px Comic Sans MS";
-    ctx.fillText("VIDAS:  " + this.live , 200, 30);
+    ctx.font = "20px Impact";
+    ctx.fillText("VIDAS:  " + this.live , 150, 30);
     
   };
  

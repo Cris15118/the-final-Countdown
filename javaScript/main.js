@@ -36,10 +36,11 @@ const DisparoAudio = new Audio()
 //* FUNCIONES DE ESTADO
 const startDisparo = ()=>{
   DisparoAudio.play()
+  DisparoAudio.volume = 0.08
  
 }
 const StartAudio =()=>{
-  audioIntro.volume = 0.2
+  audioIntro.volume = 0.0
   audioIntro.play()
   audioIntro.loop = true
   audioIntro.currentTime = 0
@@ -96,6 +97,9 @@ const inicioGame = ()=>{
 pressBtnDOM.addEventListener("click", instruccions)
 startBtnDOM.addEventListener("click", startGame);
 pauseBtnDOM.addEventListener("click", pauseGame)
+pauseBtnDOM.addEventListener("keyup", (event)=>{
+  event.preventDefault()
+} )
 restartBtnDOM.addEventListener("click", restartGame);
 inicioBtnDOM.addEventListener("click", inicioGame )
 
@@ -113,3 +117,4 @@ window.addEventListener("keydown", (event)=>{
       startDisparo()
       }
 })
+
