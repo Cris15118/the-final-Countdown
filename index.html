@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <div class="container">
-        <!-- pantalla principal-->
-        <div id="pantalla-principal" class="container">
-           
-    
-            <img src="imagenes/FinalCountdownCortado.png"  alt="logo-juego">
-            <button id="press-btn">INSTRUCCIONES</button>
-        </div>
-            <!--pagina de instrucciones-->
+      <!-- pantalla principal-->
+      <div id="pantalla-principal" class="container">
+        <img src="imagenes/FinalCountdownCortado.png" alt="logo-juego" />
+       <div id="container-instruccion">
+       
+       <button id="press-btn">INSTRUCCIONES</button>
+       </div>
+      </div>
+      <!--pagina de instrucciones-->
 
-            <div id="instrucciones" class="container">
-                <h3>INSTRUCCIONES</h3>
-                <h4>Movimientos laterales</h4>
-                 <h5>Pulsa flecha derecha e izquierda</h5>
-               <div id="flecha">   
-              <img src="imagenes/flechaIzquierda.png" alt="flecha-izquierda"> <img src="imagenes/flechaDerecha.png" alt="flecha-derecha">  
-              </div>  
-             
-                <h4>Disparo</h4>
-                <h5>Pulsa barra espaciadora para disparo</h5>
-                <img class="space" src="imagenes/barraSpace.png" alt="">
-                <p>No dejes que Thanos y Loki invadan nuestro planeta</p>
-                <p>Cada villano que pase te restará un vida</p>
-                <p>Toma Gemas del Infinito para sumar vidas</p>
-            
-            <button id="start-btn">START</button>
-</div> 
-        <!-- my canvas-->
-        <div id="container-pause">
+      <div id="instrucciones" class="container">
+        <h3>INSTRUCCIONES</h3>
+        <h4>Movimientos laterales</h4>
+        <h5>Pulsa flecha derecha e izquierda</h5>
+        <div id="flecha">
+          <img src="imagenes/flechaIzquierda.png" alt="flecha-izquierda" />
+          <img src="imagenes/flechaDerecha.png" alt="flecha-derecha" />
+        </div>
+
+        <h4>Disparo</h4>
+        <h5>Pulsa barra espaciadora para disparo</h5>
+        <img class="space" src="imagenes/barraSpace.png" alt="" />
+        <p>No dejes que Thanos y Loki invadan nuestro planeta</p>
+        <p>Cada villano que pase te restará un vida</p>
+        <p>Toma Gemas del Infinito para sumar vidas</p>
+
+        <button id="start-btn">START</button>
+      </div>
+      <!-- my canvas-->
+      <div id="container-pause">
         <canvas id="my-canvas" width="400" height="600"></canvas>
         <button id="pause-btn">PAUSE</button>
-        </div>
-        <!--pantalla game over-->
-        <div id="pantalla-gameover" class="container">
-            <img src="imagenes/gameOver.png" alt="game over">
-            <button id="restart-btn">TRY AGAIN</button>
-            <button id="inicio">INICIO</button>
-        </div>
-
+      </div>
+      <!--pantalla game over-->
+      <div id="pantalla-gameover" class="container">
+        <img src="imagenes/gameOver.png" alt="game over" />
+        
+        <button id="restart-btn">TRY AGAIN</button>
+        <button id="inicio">INICIO</button>
+      </div>
     </div>
     <script src="./javaScript/main.js"></script>
     <script src="./javaScript/Game.js"></script>
@@ -55,5 +57,5 @@
     <script src="./javaScript/Disparo.js"></script>
     <script src="./javaScript/Otrovillano.js"></script>
     <script src="./javaScript/Gemas.js"></script>
-</body>
+  </body>
 </html>

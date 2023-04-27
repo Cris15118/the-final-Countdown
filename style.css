@@ -1,53 +1,57 @@
-body{
-    margin: 0;
-    background-color:white;
+body {
+  margin: 0;
+  background-color: white;
 }
-#my-canvas{
-    background-color: darkgray;
+#my-canvas {
+  background-color: darkgray;
 }
 #start-btn {
+  background-color: crimson;
+  border-color: orange;
+  border-style: double;
+  border-width: 5px;
+  color: black;
+  font-weight: bold;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  display: block;
+  margin-left: 150px;
+  margin-top: 50px;
+  font-size: 20px;
 
-    background-color: crimson;
-    border-color: orange;
-    border-style: double;
-    border-width: 5px;
-    color: black;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-   display: block;
-   margin-left: 150px;
-   margin-top: 50px;
-    font-size: 20px;
-   
-    border-radius: 5px;
-    width: 100px;
-    height: 50px;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
 }
-#press-btn{
-  background-color: crimson;
-    border-color: orange;
-    border-style: double;
-    border-width: 5px;
-    color: black;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-   display: block;
-   
-   margin-left: 150px;
-    font-size: 18px;
-    margin-bottom: 60px;
-    border-radius: 5px;
-    width: 200px;
-    height: 50px;
+#container-instruccion{
+  display: flexbox;
+  
+
 }
-#inicio{
+#press-btn {
   background-color: crimson;
-    border-color: orange;
-    border-style: double;
-    border-width: 5px;
-    color: black;
-    font-weight: bold;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  border-color: orange;
+  border-style: double;
+  border-width: 5px;
+  color: black;
+  font-weight: bold;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  margin-top: 100px;
+  
+
+  
+}
+#inicio {
+  background-color: crimson;
+  border-color: orange;
+  border-style: double;
+  border-width: 5px;
+  color: black;
+  font-weight: bold;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   padding: 0px;
   font-size: 18px;
   margin-bottom: 10px;
@@ -56,14 +60,14 @@ body{
   height: 50px;
 }
 
-#restart-btn{
+#restart-btn {
   background-color: crimson;
   border-color: orange;
   border-style: double;
   border-width: 5px;
   color: black;
   font-weight: bold;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   padding: 0px;
   font-size: 18px;
   margin-top: 350px;
@@ -72,13 +76,12 @@ body{
   width: 100px;
   height: 50px;
 }
-#pause-btn{
- 
+#pause-btn {
   background-color: rgb(231, 76, 60);
   border-color: rgb(27, 79, 114);
   color: black;
   border-width: 3px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 12px;
   margin-top: 0px;
   border-radius: 5px;
@@ -90,91 +93,87 @@ body{
   text-align: center;
 }
 .container {
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
-  }
-  #container-pause{
-    display: none;
-    
-  }
-  #pantalla-gameover{
-    display: none;
-  }
-  #pantalla-principal{
-    background-image: url(imagenes/losVengadoresPaginaInicio.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 500px;
-    height: 600px;
-    
-  }
-  #pantalla-gameover{
-    background-image: url(imagenes/ThanosGAmeOver.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 500px;
-    height: 600px;
-  }
-  #pantalla-gameover img{
-    width: 200px;
-  }
-  #pantalla-principal img{
-    width: 200px ;
-    margin-top: 250px;
-    margin-bottom: 90px;
-   margin-left: 150px;
-  }
-  #instrucciones{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  margin: 50px;
+}
+#container-pause {
+  display: none;
+}
+#pantalla-gameover {
+  display: none;
+}
+#pantalla-principal {
+  background-image: url(imagenes/losVengadoresPaginaInicio.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 500px;
+  height: 700px;
+}
+#pantalla-gameover {
+  background-image: url(imagenes/ThanosGAmeOver.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 500px;
+  height: 600px;
+}
+#pantalla-gameover img {
+  width: 200px;
+}
+#pantalla-principal img {
+  width: 200px;
+  margin-top: 10px;
+  
+}
+#instrucciones { 
   width: 400px;
   height: 500px;
-   color: rgb(21, 67, 96);
-  background-color: rgba(232,218,239,0.5);
-    text-align: justify;
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-   
-   margin-top: 100px;
-    margin-bottom: 30px;
-    
-    padding-top: 80px;
-    font-family: cursive;    
+  color: rgb(21, 67, 96);
+  background-color: rgba(232, 218, 239, 0.5);
+  text-align: justify;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
 
-    
-  }
-  #instrucciones h3, h4, h5, p {
-    margin: 0;
-    text-align: center;
-  }
-  
-  #instrucciones img{
-    width: 30px;
-    height: 30px;
-    margin: 0;
-    margin-left: 10px;
-    padding-left: 100px;
-  }
-  #flecha{
-    display: flex;
-    
-  }
-  #instrucciones .space{
-    width: 150px;
-    height: 80px;
-    margin-left: 20px;
-  }
-  #instrucciones h4, h3{
-    text-decoration: underline;
-    padding-bottom: 10px;
-  }
-  #instrucciones p{
-    font-size: 16px;
-    font-weight: bold;
+  margin-top: 100px;
+  margin-bottom: 30px; 
 
-  }
-  
+  padding-top: 80px;
+  font-family: cursive;
+}
+#instrucciones h3,
+h4,
+h5,
+p {
+  margin: 0;
+  text-align: center;
+}
+
+#instrucciones img {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  margin-left: 10px;
+  padding-left: 100px;
+}
+#flecha {
+  display: flex;
+}
+#instrucciones .space {
+  width: 150px;
+  height: 80px;
+  margin-left: 20px;
+}
+#instrucciones h4,
+h3 {
+  text-decoration: underline;
+  padding-bottom: 10px;
+}
+#instrucciones p {
+  font-size: 16px;
+  font-weight: bold;
+}

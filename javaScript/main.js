@@ -32,7 +32,7 @@ const pausarAudioIntro = () => {
 };
 const startDisparo = () => {
   DisparoAudio.play();
-  DisparoAudio.volume = 0.08;
+  DisparoAudio.volume = 0.05;
 };
 const startAudioJuego = () => {
   audioJuego.volume = 0.05;

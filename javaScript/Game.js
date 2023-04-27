@@ -10,8 +10,8 @@ class Game {
     this.live = 5;
     this.otroVillanoArray = [];
     this.gemaArray = [];
-    this.speedOtroVillano = 1;
-    this.speedVillano = 1;
+    this.speedOtroVillano = 0.8;
+    this.speedVillano = 0.8;
   }
 
   drawBackground = () => {
@@ -123,7 +123,7 @@ class Game {
           this.score += 5;
           this.crashVillano();
         }
-      });
+      }); 
     });
     this.otroVillanoArray.forEach((eachOtroVillano, indexOtroVillano) => {
       this.disparosArray.forEach((eachDisparo, indexDisparo) => {
@@ -152,7 +152,7 @@ class Game {
   crashVillano = () => {
     let crashAudio = new Audio();
     crashAudio.src = "audio/crash.mp3";
-    crashAudio.volume = 0.08;
+    crashAudio.volume = 0.05;
     crashAudio.play();
   };
   risaMalvada = () => {
@@ -177,6 +177,7 @@ class Game {
     this.audioGameover();
     this.risaMalvada();
     this.pauseAudioJuego();
+  
   };
   clearCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -220,6 +221,7 @@ class Game {
       this.live = 5;
     }
   };
+  
 
   gameLoop = () => {
     
