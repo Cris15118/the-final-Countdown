@@ -86,7 +86,7 @@ const restartGame = () => {
 };
 const inicioGame = () => {
   gameoverScreenDOM.style.display = "none";
-  splasScreenDOM.style.display = "block";
+  splasScreenDOM.style.display = "flex";
   pausarAudioFinal();
   StartAudio();
 };

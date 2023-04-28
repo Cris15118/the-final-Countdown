@@ -23,7 +23,8 @@ body {
   height: 50px;
 }
 #container-instruccion{
-  display: flexbox;
+  display: flex;
+  justify-content: center;
   
 
 }
@@ -41,9 +42,9 @@ body {
   height: 50px;
   margin-top: 100px;
   
-
-  
 }
+
+
 #inicio {
   background-color: crimson;
   border-color: orange;
@@ -127,6 +128,8 @@ body {
 #pantalla-principal img {
   width: 200px;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
   
 }
 #instrucciones { 
